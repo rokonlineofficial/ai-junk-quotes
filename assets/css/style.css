@@ -1,0 +1,946 @@
+/* =========================================================
+   JUNK ROBBERS QUOTE FORM
+   ========================================================= */
+
+#qf-root {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 32px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10);
+    box-sizing: border-box;
+    font-family: inherit;
+    color: #222222;
+}
+
+#qf-root *,
+#qf-root *::before,
+#qf-root *::after {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.qf-progress-label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #5b3f8c;
+}
+
+.qf-progress-track {
+    width: 100%;
+    height: 8px;
+    margin-bottom: 28px;
+    overflow: hidden;
+    background: #ececec;
+    border-radius: 999px;
+}
+
+.qf-progress-fill {
+    width: 33.333%;
+    height: 100%;
+    background: #f4c542;
+    border-radius: 999px;
+    transition: width 0.25s ease;
+}
+
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
+
+.qf-title {
+    margin: 0 0 8px;
+    color: #3d2a6d;
+    font-size: 30px;
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.qf-subtitle {
+    margin: 0 0 20px;
+    color: #555555;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+.qf-divider {
+    width: 100%;
+    height: 1px;
+    margin: 0 0 25px;
+    border: 0;
+    background: #e6e6e6;
+}
+
+.qf-center {
+    text-align: center;
+}
+
+.qf-section-heading {
+    margin: 32px 0 20px;
+    padding-top: 26px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.qf-section-heading h3 {
+    margin: 0 0 5px;
+    color: #3d2a6d;
+    font-size: 23px;
+    line-height: 1.3;
+}
+
+.qf-section-heading p {
+    margin: 0;
+    color: #666666;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   FIELDS
+   ========================================================= */
+
+.qf-field {
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.qf-field > label {
+    display: block;
+    margin-bottom: 8px;
+    color: #292929;
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.qf-req {
+    color: #b42318;
+}
+
+.qf-recommended {
+    color: #666666;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.qf-field-help {
+    margin: -2px 0 10px;
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.qf-hint {
+    margin-top: 8px;
+    color: #777777;
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+#qf-root input[type="text"],
+#qf-root input[type="email"],
+#qf-root input[type="tel"],
+#qf-root input[type="date"],
+#qf-root select,
+#qf-root textarea {
+    display: block;
+    width: 100%;
+    min-height: 50px;
+    margin: 0;
+    padding: 12px 14px;
+    border: 1px solid #cfcfcf;
+    border-radius: 8px;
+    outline: none;
+    background: #ffffff;
+    color: #222222;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 1.4;
+    box-shadow: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#qf-root textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+#qf-root input:focus,
+#qf-root select:focus,
+#qf-root textarea:focus {
+    border-color: #5b3f8c;
+    box-shadow: 0 0 0 3px rgba(91, 63, 140, 0.12);
+}
+
+
+/* =========================================================
+   CHECKBOX CHOICE CARDS
+   ========================================================= */
+
+.qf-choice-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.qf-choice {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 50px;
+    margin: 0;
+    padding: 12px 14px;
+    border: 1px solid #d8d8d8;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #333333;
+    font-size: 14px;
+    line-height: 1.35;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.qf-choice:hover {
+    border-color: #5b3f8c;
+    background: #faf8fd;
+}
+
+.qf-choice input[type="checkbox"],
+.qf-choice input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    margin: 0;
+    accent-color: #5b3f8c;
+    cursor: pointer;
+}
+
+.qf-choice:has(input:checked) {
+    border-color: #5b3f8c;
+    background: #f6f2fb;
+}
+
+.qf-radio-stack {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+
+/* =========================================================
+   CONDITIONAL SECTIONS
+   ========================================================= */
+
+.qf-conditional,
+.qf-conditional-group {
+    padding: 18px;
+    border: 1px solid #e4dcef;
+    border-radius: 10px;
+    background: #faf8fd;
+}
+
+.qf-conditional-group {
+    margin-bottom: 22px;
+}
+
+.qf-conditional-group .qf-field:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   PHOTO UPLOAD
+   ========================================================= */
+
+.qf-dropzone {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    min-height: 110px;
+    padding: 20px;
+    border: 2px dashed #c9c0d8;
+    border-radius: 10px;
+    background: #faf9fc;
+    color: #555555;
+    text-align: center;
+    font-size: 14px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.qf-dropzone-active {
+    border-color: #5b3f8c;
+    background: #f4effa;
+}
+
+.qf-btn-select {
+    display: inline;
+    width: auto;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #5b3f8c;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.qf-file-list {
+    display: grid;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.qf-file-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 9px 11px;
+    border: 1px solid #e3e3e3;
+    border-radius: 7px;
+    background: #fafafa;
+    font-size: 13px;
+}
+
+.qf-file-name {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.qf-file-remove {
+    width: auto;
+    min-width: 0;
+    margin: 0;
+    padding: 4px 7px;
+    border: 0;
+    background: transparent;
+    color: #a51d1d;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.qf-btn-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 26px;
+}
+
+#qf-root .qf-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-height: 50px;
+    margin: 0;
+    padding: 13px 22px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.2;
+    font-weight: 800;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.1s ease, opacity 0.15s ease;
+}
+
+#qf-root .qf-btn:hover {
+    transform: translateY(-1px);
+}
+
+#qf-root .qf-btn:disabled {
+    opacity: 0.65;
+    cursor: wait;
+    transform: none;
+}
+
+#qf-root .qf-btn-primary {
+    border: 2px solid #f4c542;
+    background: #f4c542;
+    color: #241b12 !important;
+}
+
+#qf-root .qf-btn-secondary {
+    border: 1px solid #cfcfcf;
+    background: #ffffff;
+    color: #4b4b4b;
+}
+
+.qf-step[data-step="1"] .qf-btn-primary {
+    margin-top: 4px;
+}
+
+
+/* =========================================================
+   SMS CONSENT
+   ========================================================= */
+
+.qf-checkbox-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 4px 0 10px;
+}
+
+.qf-checkbox-row input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    margin: 2px 0 0;
+    accent-color: #5b3f8c;
+    cursor: pointer;
+}
+
+.qf-checkbox-row label {
+    margin: 0;
+    color: #555555;
+    font-size: 13px;
+    line-height: 1.45;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   VALIDATION
+   ========================================================= */
+
+.qf-error {
+    display: none;
+    margin-top: 6px;
+    color: #b42318;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.qf-invalid > .qf-error {
+    display: block;
+}
+
+.qf-invalid input[type="text"],
+.qf-invalid input[type="email"],
+.qf-invalid input[type="tel"],
+.qf-invalid input[type="date"],
+.qf-invalid select,
+.qf-invalid textarea {
+    border-color: #b42318 !important;
+}
+
+.qf-invalid .qf-choice {
+    border-color: #b42318;
+}
+
+
+/* =========================================================
+   THANK YOU
+   ========================================================= */
+
+.qf-thankyou {
+    padding: 20px 0 10px;
+    text-align: center;
+}
+
+.qf-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: #f4c542;
+    color: #3d2a6d;
+    font-size: 34px;
+    line-height: 1;
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    #qf-root {
+        padding: 22px 16px;
+        border-radius: 12px;
+    }
+
+    .qf-title {
+        font-size: 25px;
+    }
+
+    .qf-subtitle {
+        font-size: 15px;
+    }
+
+    .qf-choice-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .qf-radio-stack {
+        grid-template-columns: 1fr;
+    }
+
+    .qf-btn-row {
+        flex-direction: column-reverse;
+    }
+
+    #qf-root .qf-btn {
+        width: 100%;
+    }
+
+    .qf-step[data-step="1"] .qf-btn-primary {
+        width: 100%;
+    }
+
+    .qf-dropzone {
+        min-height: 100px;
+        padding: 16px 12px;
+    }
+
+    .qf-file-item {
+        align-items: flex-start;
+    }
+}
+
+#qf-root .qf-btn-secondary {
+    background: #ffffff !important;
+    color: #5a3295 !important;
+    border: 2px solid #5a3295 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+#qf-root .qf-btn-secondary:hover {
+    background: #f5f1fa !important;
+    color: #5a3295 !important;
+}
+/* Simplified photo upload */
+#qf-root .qf-dropzone {
+    min-height: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    display: block !important;
+    text-align: left !important;
+}
+
+#qf-root .qf-btn-select {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 14px 24px !important;
+    min-height: 50px !important;
+    border-radius: 8px !important;
+    border: 2px solid #5a3295 !important;
+    background: #5a3295 !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+}
+
+/* Previous buttons */
+#qf-root .qf-btn-secondary {
+    background: #ffffff !important;
+    color: #5a3295 !important;
+    border: 2px solid #5a3295 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-weight: 700 !important;
+    -webkit-text-fill-color: #5a3295 !important;
+}
+
+#qf-root .qf-btn-secondary::before {
+    content: "← Previous";
+    color: #5a3295 !important;
+    -webkit-text-fill-color: #5a3295 !important;
+}
+
+#qf-root .qf-btn-secondary {
+    font-size: 0 !important;
+}
+
+#qf-root .qf-btn-secondary::before {
+    font-size: 16px !important;
+}
+
+/* =========================================================
+   JUNK ROBBERS FORM – VISUAL POLISH
+   Appearance only
+   ========================================================= */
+
+/* Main form card */
+#qf-root {
+    border-radius: 18px !important;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.10) !important;
+}
+
+/* Give desktop form a little more breathing room */
+@media (min-width: 1024px) {
+    #qf-root {
+        width: 100% !important;
+        max-width: 480px !important;
+    }
+}
+
+/* Step indicator */
+#qf-root .qf-step-indicator,
+#qf-root .qf-step-label {
+    color: #5a3295 !important;
+    font-weight: 700 !important;
+}
+
+/* Headings */
+#qf-root h1,
+#qf-root h2,
+#qf-root .qf-title {
+    line-height: 1.08 !important;
+    letter-spacing: -0.5px !important;
+}
+
+/* Keep Step 2 heading strong without eating the whole card */
+#qf-root .qf-step[data-step="2"] h2,
+#qf-root .qf-step[data-step="2"] .qf-title {
+    font-size: 36px !important;
+    margin-bottom: 12px !important;
+}
+
+/* Labels */
+#qf-root label,
+#qf-root .qf-label {
+    font-weight: 650;
+}
+
+/* Text inputs, selects and textarea */
+#qf-root input[type="text"],
+#qf-root input[type="email"],
+#qf-root input[type="tel"],
+#qf-root input[type="date"],
+#qf-root select,
+#qf-root textarea {
+    border: 1px solid #d7d7d7 !important;
+    border-radius: 10px !important;
+    background: #ffffff !important;
+    transition: border-color .2s ease, box-shadow .2s ease !important;
+}
+
+#qf-root input[type="text"]:focus,
+#qf-root input[type="email"]:focus,
+#qf-root input[type="tel"]:focus,
+#qf-root input[type="date"]:focus,
+#qf-root select:focus,
+#qf-root textarea:focus {
+    border-color: #5a3295 !important;
+    box-shadow: 0 0 0 3px rgba(90, 50, 149, 0.12) !important;
+    outline: none !important;
+}
+
+/* Item selection grid – slightly tighter */
+#qf-root .qf-checkbox-grid {
+    gap: 10px !important;
+}
+
+/* Individual selectable item cards */
+#qf-root .qf-checkbox-grid label {
+    min-height: 58px !important;
+    padding: 11px 13px !important;
+    border-radius: 10px !important;
+    transition:
+        border-color .18s ease,
+        background .18s ease,
+        box-shadow .18s ease,
+        transform .18s ease !important;
+}
+
+#qf-root .qf-checkbox-grid label:hover {
+    border-color: #5a3295 !important;
+    background: #faf8fd !important;
+}
+
+/* Selected item card */
+#qf-root .qf-checkbox-grid label:has(input:checked) {
+    border-color: #5a3295 !important;
+    background: #f5f0fb !important;
+    box-shadow: 0 0 0 1px #5a3295 !important;
+}
+
+/* Purple checkboxes */
+#qf-root input[type="checkbox"],
+#qf-root input[type="radio"] {
+    accent-color: #5a3295 !important;
+}
+
+/* Description box */
+#qf-root textarea {
+    min-height: 105px !important;
+    resize: vertical !important;
+}
+
+/* Photo section – make it look intentional */
+#qf-root .qf-dropzone {
+    padding: 16px !important;
+    border: 2px dashed #d6c8e8 !important;
+    border-radius: 12px !important;
+    background: #faf8fd !important;
+}
+
+/* Photo button */
+#qf-root .qf-btn-select {
+    min-height: 46px !important;
+    padding: 11px 20px !important;
+    border-radius: 9px !important;
+    background: #5a3295 !important;
+    border: 2px solid #5a3295 !important;
+    box-shadow: none !important;
+    transition: transform .18s ease, box-shadow .18s ease !important;
+}
+
+#qf-root .qf-btn-select:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 14px rgba(90, 50, 149, 0.20) !important;
+}
+
+/* Main yellow action buttons */
+#qf-root .qf-btn-primary {
+    border-radius: 10px !important;
+    font-weight: 800 !important;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.10) !important;
+    transition: transform .18s ease, box-shadow .18s ease !important;
+}
+
+#qf-root .qf-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.14) !important;
+}
+
+/* Previous button – cleaner and less dominant */
+#qf-root .qf-btn-secondary {
+    border-radius: 10px !important;
+    box-shadow: none !important;
+}
+
+/* More separation before navigation */
+#qf-root .qf-btn-row {
+    margin-top: 24px !important;
+    gap: 12px !important;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+
+    #qf-root {
+        border-radius: 14px !important;
+    }
+
+    #qf-root .qf-step[data-step="2"] h2,
+    #qf-root .qf-step[data-step="2"] .qf-title {
+        font-size: 30px !important;
+    }
+
+    #qf-root .qf-checkbox-grid {
+        gap: 8px !important;
+    }
+
+    #qf-root .qf-checkbox-grid label {
+        min-height: 54px !important;
+        padding: 10px 11px !important;
+    }
+
+    #qf-root .qf-dropzone {
+        padding: 14px !important;
+    }
+}
+
+/* Junk Robbers Form – Compact refinement */
+
+/* Smaller Step 2 heading */
+#qf-root .qf-step[data-step="2"] h2,
+#qf-root .qf-step[data-step="2"] .qf-title {
+    font-size: 32px !important;
+    line-height: 1.12 !important;
+    margin-bottom: 10px !important;
+}
+
+/* Compact item cards */
+#qf-root .qf-checkbox-grid {
+    gap: 8px !important;
+}
+
+#qf-root .qf-checkbox-grid label {
+    min-height: 52px !important;
+    padding: 9px 12px !important;
+}
+
+/* Reduce excess spacing between Step 2 sections */
+#qf-root .qf-step[data-step="2"] .qf-field {
+    margin-bottom: 20px !important;
+}
+
+/* Cleaner, compact photo uploader */
+#qf-root .qf-dropzone {
+    min-height: 0 !important;
+    padding: 12px !important;
+    border: 1.5px dashed #cdbce2 !important;
+    background: #faf8fd !important;
+}
+
+#qf-root .qf-btn-select {
+    min-height: 44px !important;
+    padding: 9px 18px !important;
+}
+
+/* Don't let textarea consume unnecessary height */
+#qf-root textarea {
+    min-height: 90px !important;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    #qf-root .qf-step[data-step="2"] h2,
+    #qf-root .qf-step[data-step="2"] .qf-title {
+        font-size: 28px !important;
+    }
+
+    #qf-root .qf-checkbox-grid label {
+        min-height: 50px !important;
+        padding: 8px 10px !important;
+    }
+}
+
+/* =========================================================
+   JUNK ROBBERS FORM – FINAL COMPACTNESS PASS
+   ========================================================= */
+
+/* Step 2 main heading */
+#qf-root .qf-step[data-step="2"] h2,
+#qf-root .qf-step[data-step="2"] .qf-title {
+    font-size: 30px !important;
+    line-height: 1.12 !important;
+}
+
+/* Step 2 item cards */
+#qf-root .qf-step[data-step="2"] .qf-checkbox-grid label {
+    min-height: 48px !important;
+    padding: 8px 11px !important;
+}
+
+/* Step 3 main headings */
+#qf-root .qf-step[data-step="3"] h2,
+#qf-root .qf-step[data-step="3"] .qf-title {
+    font-size: 34px !important;
+    line-height: 1.12 !important;
+    margin-bottom: 12px !important;
+}
+
+/* Second major Step 3 heading */
+#qf-root .qf-step[data-step="3"] h3 {
+    font-size: 30px !important;
+    line-height: 1.15 !important;
+    margin-top: 28px !important;
+    margin-bottom: 10px !important;
+}
+
+/* Make timing options slightly more compact */
+#qf-root .qf-step[data-step="3"] .qf-radio-stack label,
+#qf-root .qf-step[data-step="3"] .qf-radio-grid label {
+    min-height: 62px !important;
+    padding: 12px 14px !important;
+}
+
+/* Contact fields – comfortable without being oversized */
+#qf-root .qf-step[data-step="3"] input[type="text"],
+#qf-root .qf-step[data-step="3"] input[type="email"],
+#qf-root .qf-step[data-step="3"] input[type="tel"] {
+    min-height: 54px !important;
+    padding: 12px 14px !important;
+}
+
+/* Notes field */
+#qf-root .qf-step[data-step="3"] textarea {
+    min-height: 90px !important;
+}
+
+/* SMS consent should read as secondary information */
+#qf-root .qf-step[data-step="3"] .qf-consent,
+#qf-root .qf-step[data-step="3"] .qf-checkbox-consent {
+    font-size: 15px !important;
+    line-height: 1.45 !important;
+}
+
+/* Mobile refinement */
+@media (max-width: 767px) {
+
+    #qf-root .qf-step[data-step="2"] h2,
+    #qf-root .qf-step[data-step="2"] .qf-title {
+        font-size: 28px !important;
+    }
+
+    #qf-root .qf-step[data-step="3"] h2,
+    #qf-root .qf-step[data-step="3"] .qf-title {
+        font-size: 30px !important;
+    }
+
+    #qf-root .qf-step[data-step="3"] h3 {
+        font-size: 27px !important;
+    }
+}
+/*TESTEND*/
+
+/* Keep multi-step form buttons inside their row */
+@media (min-width: 768px) {
+  #qf-root .qf-btn-row .qf-btn-primary {
+    width: auto !important;
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+  }
+  #qf-root .qf-btn-row .qf-btn-secondary {
+    flex: 0 0 auto !important;
+  }
+}
+
+
+/* Keep multi-step action buttons inside the form card on desktop and tablet. */
+@media (min-width: 768px) {
+  body.home #qf-root #qf-step2-next,
+  body.home #qf-root #qf-submit-btn {
+    width: auto !important;
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+  }
+
+  body.home #qf-root #qf-step2-back,
+  body.home #qf-root #qf-step3-back {
+    flex: 0 0 auto !important;
+  }
+}
